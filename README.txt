@@ -10,13 +10,15 @@ For example, to animate the location and color of a Sprite, you might do this:
 
 var someSprite:Sprite = new AnimatableSprite();
 
-AnimationTransaction.beginTransaction(new EasingTimingVector(Easing.cubicEaseOut), 0.5);
+// Do some setup
+
+Animate.begin(new EasingTimingVector(Easing.cubicEaseOut), 0.5);
 
 someSprite.x = 500;
 someSprite.y = 500;
 someSprite.tintColor = 0xff0000;
 
-AnimationTransaction.commitTransaction();
+Animate.commit();
 
 =====================================================================================
 
