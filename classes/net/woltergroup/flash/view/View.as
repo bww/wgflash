@@ -45,6 +45,7 @@ package net.woltergroup.flash.view {
   public class View extends AnimatableSprite {
     
     private var _frame:Rectangle;
+    private var _needsLayout:Boolean;
     
     /**
      * Construct
@@ -53,6 +54,7 @@ package net.woltergroup.flash.view {
      */
     public function View(r:Rectangle = null) {
       __setFrame((r != null) ? r : new Rectangle(x, y, width, height), false);
+      _needsLayout = true;
     }
     
     /**

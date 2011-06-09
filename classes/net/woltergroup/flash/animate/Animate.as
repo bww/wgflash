@@ -29,6 +29,9 @@
 
 package net.woltergroup.flash.animate {
   
+  import net.woltergroup.flash.animate.vector.EasingTimingVector;
+  import net.woltergroup.flash.animate.easing.Easing;
+  
   /**
    * A more terse convenience interface to the animation package.
    * 
@@ -46,7 +49,9 @@ package net.woltergroup.flash.animate {
     /**
      * Begin an animation transaction
      */
-    public static function begin(vector:TimingVector, duration:Number) : AnimationTransaction {
+    public static function begin(vector:TimingVector = null, duration:Number = -1) : AnimationTransaction {
+      vector = (vector != null) ? vector : new EasingTimingVector(Easing.quadEaseInOut);
+      duration = (duration >= 0) ? duration : 0.3;
       return AnimationTransaction.beginTransaction(vector, duration);
     }
     
